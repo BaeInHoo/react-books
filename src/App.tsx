@@ -8,11 +8,13 @@ import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import Signin from './pages/Signin';
 import Error from './pages/Error';
+import { ConnectedRouter } from 'connected-react-router';
+import history from './history';
 
 function App() {
   return (
     <ErrorBoundary FallbackComponent={Error}>
-      <BrowserRouter>
+      <ConnectedRouter history={history}>
       <Switch>
         <Route path='/book/:id'>
           <Detail />
@@ -33,7 +35,7 @@ function App() {
           <NotFound />
         </Route>
       </Switch>
-      </BrowserRouter>
+      </ConnectedRouter>
     </ErrorBoundary>
   );
 }
