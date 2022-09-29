@@ -1,6 +1,7 @@
 import { LoginOutlined } from '@ant-design/icons';
 import { Row, Col, Button, Input, InputRef } from 'antd';
 import { useRef } from 'react';
+import { login } from '../redux/modules/auth';
 import { LoginReqType } from '../types';
 import styles from "./Signin.module.css";
 

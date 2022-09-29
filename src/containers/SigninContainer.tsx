@@ -6,7 +6,7 @@ import { login as loginSagaStart } from "../redux/modules/auth";
 export default function SigninContainer() {
   const dispatch = useDispatch();
 
-  const login = useCallback((reqData) => {
+  const login = useCallback((reqData: any) => {
     dispatch(loginSagaStart(reqData));
   }, [dispatch]);
 
