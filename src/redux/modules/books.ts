@@ -1,14 +1,7 @@
 import { createActions, handleActions } from "redux-actions";
+import { BooksState, BookType } from "../../types";
 
-interface Book {
 
-}
-
-interface BooksState {
-  books: Book[] | null;
-  loading: boolean;
-  error: Error | null;
-}
 
 const initialState: BooksState = {
   books: null,
@@ -20,7 +13,7 @@ const prefix = "react-books/books";
 
 export const {pending, success, fail} = createActions("PENDING", "SUCCESS", "FAIL", {prefix});
 
-const reducer = handleActions<BooksState, Book>({
+const reducer = handleActions<BooksState, BookType>({
   PENDING: (state) => ({ ...state, loading: true, error: null }),
   SUCCESS: (state, action) => ({
     books: action.payload,
@@ -37,6 +30,10 @@ const reducer = handleActions<BooksState, Book>({
 export default reducer;
 
 // saga
+
+export const { getBooks } = createActions("GET_BOOKS", {
+  prefix,
+});
 
 export function* booksSaga() {
   
