@@ -21,10 +21,14 @@ export interface BooksState {
 
 export interface RootState {
   auth: AuthState;
-  books:
-  router: Reducer<RouterState<unknown>, AnyAction>
+  books: BooksState;
+  router: Reducer<RouterState<unknown>, AnyAction>;
 }
 
 export interface BookType {
-
+  bookId: number;
+  title: string;
+  author: string;
+  createdAt: string;
+  url: string;
 }
