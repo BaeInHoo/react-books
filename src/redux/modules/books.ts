@@ -44,7 +44,7 @@ function* getBooksSaga() {
     const books: BookType[] = yield call(BookService.getBooks, token);
     yield put(success(books));
   } catch (err) {
-    yield put(fail(new Error(err?.response?.data?.error || 'UNKNOWN_ERROR')))
+    yield put(fail(new Error('UNKNOWN_ERROR')))
   }
 }
 

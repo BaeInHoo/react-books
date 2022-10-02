@@ -28,7 +28,7 @@ const reducer = handleActions<AuthState, string>({
   }),
   SUCCESS: (state, action) => ({
     token: action.payload,
-    loading: true,
+    loading: false,
     error: null,
   }),
   FAIL: (state, action: any) => ({
@@ -41,7 +41,7 @@ const reducer = handleActions<AuthState, string>({
 export default reducer;
 
 // saga
-export const { login, logout} = createActions('LOGIN', "LOGOUT", { prefix });
+export const { login, logout } = createActions('LOGIN', "LOGOUT", { prefix });
 
 function* loginSaga(action: Action<LoginReqType>) {
   try {
@@ -49,7 +49,7 @@ function* loginSaga(action: Action<LoginReqType>) {
     const token: string = yield call(UserService.login, action.payload);
     TokenService.set(token);
     yield put(success(token));
-    yield put(push('/'));
+    yield put(push("/"));
     // push
   } catch (error) {
     yield put(fail(new Error('UNKNOWN_ERROR')));

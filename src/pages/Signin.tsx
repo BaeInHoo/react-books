@@ -5,7 +5,9 @@ import SigninContainer from '../containers/SigninContainer';
 import { RootState } from '../types';
 
 export default function Signin() {
-  const token = useSelector<RootState, string | null>((state) => state.auth.token);
+  const token = useSelector<RootState, string | null>(
+    (state) => state.auth.token
+  );
   
   if (token !== null) {
     return <Redirect to="/" />;
