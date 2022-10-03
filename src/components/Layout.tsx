@@ -1,7 +1,10 @@
-import { LayoutState } from '../types';
 import styles from './Layout.module.css';
 
-const Layout: React.FC<LayoutState> = ({ children }) => (
+interface Layout {
+  children: string;
+}
+
+const Layout: React.FC<Layout> = ({ children }) => (
   <div className={styles.layout}>{children}</div>
 );
 
